@@ -7,11 +7,11 @@ end module type_defs
 module problem_setup
   use type_defs
   implicit none
-    integer,  parameter :: Nx = 160
+    integer,  parameter :: Nx = 120
     logical, parameter :: dirichlet_bc = .false.
     logical, parameter :: use_direct = .false.
-    character (len=40) :: method= 'Gauss'
-    real(dp), parameter :: TOL = 1/(160.0_dp)**2
+    character (len=40) :: method= 'SD'
+    real(dp), parameter :: TOL = 1e-12_dp
 end module problem_setup
 
 module arrs
@@ -100,7 +100,6 @@ contains
        r_isd = r_isd - alpha*Ar_isd       
        res_norm2 = sum(r_isd**2)
        iter = iter + 1
-       write(*,*) iter, sqrt(res_norm2) 
     end do
     x = x_isd
   end subroutine steep_descent_d
@@ -200,20 +199,19 @@ subroutine steep_descent_N(x,b,n)
   r_isn = b
     call apply_1D_laplacian_N(Ar_isn,r_isn,n)
     do i = 1,n
-    write(*,*) Ar_isn(i)
     end do
   res_norm20 = sum(r_isn**2)
   res_norm2 = res_norm20
   iter = 0
   do while ((res_norm2/res_norm20 .gt. TOL_ISN**2) &
-       .and. (iter .lt. 10000))
+       .and. (iter .lt. 1e12))
      call apply_1D_laplacian_N(Ar_isn,r_isn,n)
      alpha = res_norm2 / sum(r_isn*Ar_isn)
      x_isn = x_isn + alpha*r_isn
      r_isn = r_isn - alpha*Ar_isn
      res_norm2 = sum(r_isn**2)
      iter = iter + 1
-     write(*,*) iter, sqrt(res_norm2)
+     write(*,*) res_norm2/res_norm20
   end do
   x = x_isn
 end subroutine steep_descent_N
@@ -762,7 +760,7 @@ end if
     end if
      u(0) = exp(-x(0))
      u(nx) = exp(-x(nx))
-     write(*,*) maxval(abs(u - exp(-x)))
+
      
   else
      do i = 1,nx+1
