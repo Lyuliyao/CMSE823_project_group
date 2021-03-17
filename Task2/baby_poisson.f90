@@ -7,11 +7,11 @@ end module type_defs
 module problem_setup
   use type_defs
   implicit none
-    integer,  parameter :: Nx = 100
+    integer,  parameter :: Nx =320
     logical, parameter :: dirichlet_bc = .true.
     logical, parameter :: use_direct = .false.
-    character (len=40) :: method= 'Gauss'
-    real(dp), parameter :: TOL = 1.0e-12_dp
+    character (len=40) :: method= 'Jacobi'
+    real(dp), parameter :: TOL = 1e-12_dp
 end module problem_setup
 
 module arrs
@@ -114,12 +114,14 @@ subroutine Gauss_d(x,b,A,n)
   real(dp), dimension(:,:), intent(in) :: A
   real(dp), intent(inout)  :: x(n)
   real(dp), intent(in)  :: b(n)
-  real(dp), allocatable, dimension(:) :: x_temp
-  real(dp) :: r
+  real(dp), allocatable, dimension(:) :: x_temp,r_isd
+  real(dp) :: r,res_norm20,res_norm2
   integer :: iter,i,j
   x_temp = x+1
   iter = 0
-  do while (( sum( (x_temp-x)**2) .gt. TOL_ISD**2) &
+  res_norm20 = sum(b**2)
+  res_norm2 = res_norm20
+  do while ((res_norm2/res_norm20 .gt. TOL_ISD**2)&
        .and. (iter .lt. 1e12))
         x_temp = x
         do i = 1,n
@@ -130,7 +132,10 @@ subroutine Gauss_d(x,b,A,n)
             x(i) = x(i) + r/A(i,i)
         end do
         iter = iter + 1
-end do
+        call apply_1D_laplacian_D(Ar_isd,x,n)
+        res_norm2 = sum( (Ar_isd-b)**2)
+    end do
+write(*,*) iter
 end subroutine Gauss_d
 
  subroutine Jacobi_d(x,b,A,n)
@@ -141,13 +146,14 @@ end subroutine Gauss_d
     real(dp), dimension(:,:), intent(in) :: A
     real(dp), intent(inout)  :: x(n)
     real(dp), intent(in)  :: b(n)
-    real(dp), allocatable, dimension(:) :: x_temp
-    real(dp) :: r
+    real(dp), allocatable, dimension(:) :: x_temp,r_isd
+    real(dp) :: r,res_norm20,res_norm2
     integer :: iter,i,j
     x_temp = x+1
     iter = 0
-
-    do while (( sum( (x_temp-x)**2) .gt. TOL_ISD**2) &
+    res_norm20 = sum(b**2)
+    res_norm2 = res_norm20
+    do while (( res_norm2/res_norm20 .gt. TOL_ISD**2) &
          .and. (iter .lt. 1e12))
           x_temp = x
           do i = 1,n
@@ -158,7 +164,10 @@ end subroutine Gauss_d
               x(i) = x_temp(i) + r/A(i,i)
           end do
           iter = iter + 1
+        call apply_1D_laplacian_D(Ar_isd,x,n)
+        res_norm2 = sum( (Ar_isd-b)**2)
     end do
+write(*,*) iter
 end subroutine Jacobi_d
 end module iterative_solver_D
 
@@ -201,7 +210,7 @@ program ins
   ! This program solves u_xx = f 
   ! on the domain [x] \in [0,1] with either Dirichlet or Neumann BC
   ! hx = 1/Nx
-  real(dp) :: hx
+  real(dp) :: hx,time1,time2
   integer :: i,n_iter,N_sys,info  
   real(dp), allocatable, dimension(:,:) :: A
   real(dp), allocatable, dimension(:) :: action_of_A,u_inner
@@ -260,7 +269,7 @@ end if
      ! We must also account for the boundary conditions
      b(1) = b(1) - exp(-x(0))
      b(nx-1) = b(nx-1) - exp(-x(nx))
-
+call cpu_time(time1)
      if (use_direct) then
         CALL DGETRF(N_sys,N_sys,A,N_sys,ipiv,INFO)
         CALL DGETRS('N',N_sys,1,A,N_sys,IPIV,b,N_sys,INFO)
@@ -272,6 +281,7 @@ end if
             
            call Gauss_d(u(1:nx-1),b,A,N_sys)
            call deallocate_isd
+
        elseif (method == "Jacobi") then
            call allocate_isd(N_sys)
            call set_tol_isd(tol)
@@ -281,8 +291,9 @@ end if
     end if
      u(0) = exp(-x(0))
      u(nx) = exp(-x(nx))
-     write(*,*) maxval(abs(u - exp(-x)))
-     
+     !write(*,*) maxval(abs(u - exp(-x)))
+call cpu_time(time2)
+write(*,*) time2 -time1
   else
      do i = 0,nx
         b(i) = hx*hx*exp(-x(i))
@@ -302,5 +313,5 @@ end if
         ! FIX ME
      end if
   end if
-    
+
 end program ins

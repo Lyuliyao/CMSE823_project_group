@@ -176,8 +176,7 @@ program ins
      end if
      u(0) = exp(-x(0))
      u(nx) = exp(-x(nx))
-     call cpu_time(time2)
-     write(*,*) time2 -time1
+call cpu_time(time2)
      !write(*,*) tol, n_iter, maxval(abs(u - exp(-x)))
   else
   end if
