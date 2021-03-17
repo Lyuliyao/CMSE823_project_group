@@ -13,7 +13,7 @@ module problem_setup
   real(dp), parameter :: Lx = 1.0_dp
   real(dp), parameter :: Ly = 1.0_dp
   real(dp), parameter :: nu = 0.005_dp      ! Viscosity
-  integer,  parameter :: Nx = 100     ! Number of gridpoints in x
+  integer,  parameter :: Nx = 100          ! Number of gridpoints in x
   integer,  parameter :: Ny = 100         ! Number of gridpoints in y
   integer,  parameter :: Nsteps = 5000    ! Number of timesteps
   logical, parameter :: do_plot = .true.  ! Plot?
@@ -22,8 +22,8 @@ module problem_setup
   real(dp), parameter :: alpha = 0.1_dp/k
   real(dp), parameter :: pi = acos(-1.d0)
   character (len=40) :: method= 'Gauss'
-  logical, parameter :: use_dense_uv = .false.
-  logical, parameter :: use_dense_p = .false.
+  logical, parameter :: use_dense_uv = .true.
+  logical, parameter :: use_dense_p = .true.
 
 end module problem_setup
 
@@ -85,8 +85,8 @@ module matrices
   implicit none
   real(dp), allocatable, dimension(:,:) :: LapUV,LapP,LapPBig
   integer,  allocatable, dimension(:) :: ipiv_pbig,ipiv_uv
-  real(dp), allocatable, dimension(:) :: pvec,lpvec,uvec,vvec,uvec_out,vvec_out
-  real(dp), allocatable, dimension(:) :: pbvecbig,pvecbig,pbvecbig_k,pvecbig_k,pbvecbig_temp,pvecbig_temp,pbvecbig_out,pvecbig_out
+  real(dp), allocatable, dimension(:) :: pvec,lpvec,uvec,vvec,uvec_k,vvec_k,uvec_temp,vvec_temp
+  real(dp), allocatable, dimension(:) :: pbvecbig,pvecbig,pbvecbig_k,pvecbig_k,pbvecbig_temp,pvecbig_temp
 end module matrices
 
 module afuns
@@ -198,7 +198,7 @@ program ins
   ! This program solves the incompressible Navier-Stokes equations on
   ! the domain [x,y] \in [0,Lx] \times [0,Ly] using a grid spacing
   ! hx = Lx/Nx, hy = Ly/Ny.
-  real(dp) :: hx,hy,time1,time2,r
+  real(dp) :: hx,hy,time1,time2,r,res,norm
   integer :: i,j,sys_size_p,sys_size_pbig,info,nt,sys_size_uv,iter
   character(100) :: str
 
@@ -224,12 +224,14 @@ program ins
   sys_size_p = (nx+1)*(ny+1)
   sys_size_pbig = sys_size_p + 1
   sys_size_uv = (nx-1)*(ny-1)
-  allocate(pbvecbig((Nx+1)*(Ny+1)+1),pvecbig((Nx+1)*(Ny+1)+1))
+  allocate(pbvecbig((Nx+1)*(Ny+1)+1),pvecbig((Nx+1)*(Ny+1)+1),pbvecbig_k((Nx+1)*(Ny+1)+1)&
+,pvecbig_k((Nx+1)*(Ny+1)+1),pbvecbig_temp((Nx+1)*(Ny+1)+1),pvecbig_temp((Nx+1)*(Ny+1)+1))
   write(*,*) 'Setting up Laplacians'
   call cpu_time(time1)
   if (use_dense_uv) then
      allocate(LapUV((Nx-1)*(Ny-1),(Nx-1)*(Ny-1)))
-     allocate(uvec((Nx-1)*(Ny-1)),vvec((Nx-1)*(Ny-1)))
+     allocate(uvec((Nx-1)*(Ny-1)),vvec((Nx-1)*(Ny-1)),uvec_k((Nx-1)*(Ny-1)),vvec_k((Nx-1)*(Ny-1))&
+,uvec_temp((Nx-1)*(Ny-1)),vvec_temp((Nx-1)*(Ny-1)))
      !
      ! Extract one column at a time.
      ! This is a slow way of doing this... almost all entries are zero...
@@ -357,15 +359,15 @@ program ins
         end do
      end do
   elseif (method == "Gauss") then
-    write(*,*) Shape(LapPbig)
-    write(*,*) Shape(pbvecbig)
-    write(*,*) sys_size_pbig
+
     iter = 0
-    pbvecbig_k = 0_dp
+    pbvecbig_k = 0.0_dp
     pbvecbig_temp =pbvecbig_k + 1
-    write(*,*) sum( (pbvecbig_k-pbvecbig_temp)**2)
-    do while (( sum( (pbvecbig_k-pbvecbig_temp)**2) .gt. 1e-12) &
+    norm = sum(pbvecbig**2)
+    res = norm
+    do while ((res/norm .gt. hx**2) &
          .and. (iter .lt. 10000))
+            res = 0
             pbvecbig_temp = pbvecbig_k
           do i = 1,sys_size_pbig-1
               r = pbvecbig(i)
@@ -373,21 +375,16 @@ program ins
                   r = r - LapPbig(i,j)*pbvecbig_k(j)
               end do
               pbvecbig_k(i) = pbvecbig_k(i) + r/LapPbig(i,i)
+              res = res + r**2
           end do
           iter = iter + 1
-          write(*,*) sum( (pbvecbig_k-pbvecbig_temp)**2)
     end do
-    !write(*,*) pbvecbig(550:560)
-    !do i = 1,sys_size_pbig
-    !    write(*,*) LapPbig(:,i)
-    !end do
     p = 0.0d0
     do j = 0,ny
        do i = 0,nx
           p(i,j) = pbvecbig_k(1+i+j*(nx+1))
        end do
     end do
-    
   end if
   
   call computeLE(Leu,Lev,u,v,p,hx,hy,nx,ny)
@@ -410,11 +407,29 @@ program ins
         end do
      end do
     elseif (method == "Gauss") then
-      call Gauss(pbvecbig_out,pbvecbig,LapPbig,sys_size_pbig)
+        iter = 0
+        pbvecbig_k = 0.0_dp
+        pbvecbig_temp =pbvecbig_k + 1
+        norm = sum(pbvecbig**2)
+        res = norm
+        do while ((res/norm .gt. 1e-12_dp) &
+             .and. (iter .lt. 10000))
+                res = 0
+                pbvecbig_temp = pbvecbig_k
+              do i = 1,sys_size_pbig-1
+                  r = pbvecbig(i)
+                  do j = 1,sys_size_pbig-1
+                      r = r - LapPbig(i,j)*pbvecbig_k(j)
+                  end do
+                  pbvecbig_k(i) = pbvecbig_k(i) + r/LapPbig(i,i)
+                  res = res + r**2
+              end do
+              iter = iter + 1
+        end do
       p = 0.0d0
       do j = 0,ny
          do i = 0,nx
-            p(i,j) = pbvecbig_out(1+i+j*(nx+1))
+            pold(i,j) = pbvecbig_k(1+i+j*(nx+1))
          end do
       end do
   end if
@@ -445,13 +460,47 @@ program ins
            end do
         end do
     elseif (method == "Gauss") then
-      call Gauss(uvec_out,uvec,Lapuv,sys_size_pbig)
-      call Gauss(vvec_out,vvec,Lapuv,sys_size_pbig)
-      p = 0.0d0
+        iter = 0
+        uvec_k = 0.0_dp
+        vvec_k = 0.0_dp
+        uvec_temp =uvec_k + 1
+        vvec_temp =vvec_k + 1
+        norm = sum(uvec**2)
+        res = norm
+        do while ((res/norm .gt. 1e-12_dp) &
+             .and. (iter .lt. 10000))
+                res = 0
+                uvec_temp = uvec_k
+              do i = 1,sys_size_uv
+                  r = uvec(i)
+                  do j = 1,sys_size_uv
+                      r = r - Lapuv(i,j)*uvec_k(j)
+                  end do
+                  uvec_k(i) = uvec_k(i) + r/Lapuv(i,i)
+                  res = res + r**2
+              end do
+              iter = iter + 1
+        end do
+        norm = sum(vvec**2)
+        res = norm
+        do while ((res/norm .gt. 1e-12_dp) &
+             .and. (iter .lt. 10000))
+                res = 0
+                vvec_temp = vvec_k
+              do i = 1,sys_size_uv
+                  r = uvec(i)
+                  do j = 1,sys_size_uv
+                      r = r - Lapuv(i,j)*vvec_k(j)
+                  end do
+                  uvec_k(i) = vvec_k(i) + r/Lapuv(i,i)
+                  res = res + r**2
+              end do
+              iter = iter + 1
+        end do
         do j = 1,ny-1
            do i = 1,nx-1
-              u(i,j) = uvec_out(i+(j-1)*(nx-1))
-              v(i,j) = vvec_out(i+(j-1)*(nx-1))
+              u(i,j) = uvec_k(i+(j-1)*(nx-1))
+              v(i,j) = vvec_k(i+(j-1)*(nx-1))
            end do
         end do
      end if
@@ -473,10 +522,29 @@ program ins
            end do
         end do
     elseif (method == "Gauss") then
-          call Gauss(pbvecbig_out,pbvecbig,LapPbig,sys_size_pbig)
+        iter = 0
+        pbvecbig_k = 0.0_dp
+        pbvecbig_temp =pbvecbig_k + 1
+        norm = sum(pbvecbig**2)
+        res = norm
+        do while ((res/norm .gt. hx**2) &
+             .and. (iter .lt. 10000))
+                res = 0
+                pbvecbig_temp = pbvecbig_k
+              do i = 1,sys_size_pbig-1
+                  r = pbvecbig(i)
+                  do j = 1,sys_size_pbig-1
+                      r = r - LapPbig(i,j)*pbvecbig_k(j)
+                  end do
+                  pbvecbig_k(i) = pbvecbig_k(i) + r/LapPbig(i,i)
+                  res = res + r**2
+              end do
+              iter = iter + 1
+        end do
+        p = 0.0d0
         do j = 0,ny
            do i = 0,nx
-              p(i,j) = pbvecbig_out(1+i+j*(nx+1))
+              p(i,j) = pbvecbig_k(1+i+j*(nx+1))
            end do
         end do
      end if

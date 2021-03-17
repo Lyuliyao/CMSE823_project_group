@@ -7,11 +7,11 @@ end module type_defs
 module problem_setup
   use type_defs
   implicit none
-    integer,  parameter :: Nx = 32
+    integer,  parameter :: Nx = 160
     logical, parameter :: dirichlet_bc = .false.
     logical, parameter :: use_direct = .false.
-    character (len=40) :: method= 'Jacobi'
-    real(dp), parameter :: TOL = 1.0e-12_dp
+    character (len=40) :: method= 'Gauss'
+    real(dp), parameter :: TOL = 1/(160.0_dp)**2
 end module problem_setup
 
 module arrs
@@ -227,18 +227,21 @@ subroutine Gauss_general(x,b,A,n)
   real(dp), intent(inout)  :: x(n)
   real(dp), intent(in)  :: b(n)
   real(dp), allocatable, dimension(:) :: x_temp
-  real(dp) :: r
+  real(dp) :: r,res
   integer :: iter,i,j
   x_temp = x+1
   iter = 0
-  do while (( sum( (x_temp-x)**2) .gt. TOL_ISN**2) &
+  res = 1.1_dp
+  do while (( res .gt. TOL_ISN**2) &
        .and. (iter .lt. 1e12))
+        res = 0
         x_temp = x
         do i = 1,n
             r = b(i)
             do j = 1,n
                 r = r - A(i,j)*x(j)
             end do
+            res = res+r**2
             x(i) = x(i) + r/A(i,i)
         end do
         iter = iter + 1
@@ -337,18 +340,22 @@ subroutine Jacobi_general(x,b,A,n)
   real(dp), intent(inout)  :: x(n)
   real(dp), intent(in)  :: b(n)
   real(dp), allocatable, dimension(:) :: x_temp
-  real(dp) :: r
+  real(dp) :: r,res
   integer :: iter,i,j
-  x_temp = x+1
+  allocate(x_temp(n))
   iter = 0
-  do while (( sum( (x_temp-x)**2) .gt. TOL_ISN**2) &
+  res = 1.0_dp
+  do while (( res .gt. TOL_ISN**2) &
        .and. (iter .lt. 1e12))
         x_temp = x
+        res =0
         do i = 1,n
             r = b(i)
+            
             do j = 1,n
                 r = r - A(i,j)*x_temp(j)
             end do
+            res = res + r**2
             x(i) = x_temp(i) + r/A(i,i)
         end do
         iter = iter + 1
@@ -363,7 +370,7 @@ integer, intent(in) :: n
 real(dp), dimension(:,:), intent(in) :: A
 real(dp), intent(inout)  :: x(n)
 real(dp), intent(in)  :: b(n)
-real(dp), allocatable, dimension(:) :: x_temp,d
+real(dp), allocatable, dimension(:) :: x_temp,d,A_inv_u_temp
 real(dp), allocatable, dimension(:,:) :: A_res,A_d,v,U,inv_C,A_inv_u,U_T,U_T_A_inv_U,inv_U_T_A_inv_U
 real(dp) :: r
 integer :: iter,i,j,rot_num,it_num
@@ -372,6 +379,7 @@ allocate(A_d(n,n))
 allocate(v(n,n))
 allocate(U(n,3))
 allocate(A_inv_u(n,3))
+allocate(A_inv_u_temp(n))
 allocate(inv_C(3,3))
 allocate(d(n))
 
@@ -396,9 +404,12 @@ do i = 1,n
         U(i,j) = V(n+1-i,n+1-j)
     end do
 end do
+
 do i = 1,3
-call Jacobi_general(A_inv_u(:,i),U(:,i),A_d,n)
+call Jacobi_general(A_inv_u_temp,U(:,i),A_d,n)
+A_inv_u(:,i) = A_inv_u_temp
 end do
+
 call Jacobi_general(x,b,A_d,n)
 U_T = transpose(U)
 U_T_A_inv_U = matmul(U_T,A_inv_u)
@@ -658,8 +669,8 @@ program ins
   ! This program solves u_xx = f 
   ! on the domain [x] \in [0,1] with either Dirichlet or Neumann BC
   ! hx = 1/Nx
-  real(dp) :: hx
-  integer :: i,n_iter,N_sys,info  
+  real(dp) :: hx,time1,time2
+  integer :: i,n_iter,N_sys,info
   real(dp), allocatable, dimension(:,:) :: A
   real(dp), allocatable, dimension(:) :: action_of_A,u_inner
   integer, allocatable, dimension(:) ::  ipiv
@@ -767,6 +778,7 @@ end if
      b(1) = 0.5_dp*b(1) - hx*exp(-x(0))
      b(nx+1) = 0.5_dp*b(nx+1) + hx*exp(-x(nx))
      b(nx+2) = 0
+call cpu_time(time1)
     if (use_direct) then
         CALL DGETRF(N_sys,N_sys,A,N_sys,ipiv,INFO)
         CALL DGETRS('N',N_sys,1,A,N_sys,IPIV,b,N_sys,INFO)
@@ -789,7 +801,8 @@ end if
             call deallocate_isn
         end if
      end if
-    write(*,*) maxval(abs(u - (exp(-x) -1.0d0+exp(-1.0d0) )))
+call cpu_time(time2)
+write(*,*) time2 -time1
   end if
 
 

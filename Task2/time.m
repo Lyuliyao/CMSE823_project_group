@@ -11,11 +11,11 @@ T_J_f  = [2033 7820 29952 114399 436201]
 figure(1)
 axis square
 set (gca,'position',[0.15,0.15,0.8,0.8] );
-F1 = loglog(N_x,t_GS_f,'-D','DisplayName','Gauss Seidel (Tol $h_x^2$)','linewidth',2)
+F1 = loglog(N_x,t_GS_f,'-D','DisplayName','Gauss Seidel (Tol $1e-12$)','linewidth',2)
 hold on
-F2 = loglog(N_x,t_GS_c,'-*','DisplayName','Gauss Seidel (Tol $1e-12$)','linewidth',2)
+F2 = loglog(N_x,t_GS_c,'-*','DisplayName','Gauss Seidel (Tol $h_x^2$)','linewidth',2)
 F3 = loglog(N_x,t_J_f,'--p','DisplayName','Jacobi (Tol $1e-12$)','linewidth',2)
-F4 = loglog(N_x,t_J_c,'.-.','DisplayName','Jacobi (Tol $1e-12$)','linewidth',2)
+F4 = loglog(N_x,t_J_c,'.-.','DisplayName','Jacobi (Tol $h_x^2$)','linewidth',2)
 F5 = loglog(N_x(2:3),5e-8*N_x(2:3).^4,'DisplayName','slope 4','linewidth',2)
 hold off
 legend([F1,F2,F3,F4,F5],'Interpreter','latex','Location','northwest')
@@ -28,11 +28,11 @@ print Figure_Dichlet_BC_cpu_time.eps -depsc2 -r600
 figure(2)
 axis square
 set (gca,'position',[0.15,0.15,0.8,0.8] );
-F1 = loglog(N_x,T_GS_f,'-D','DisplayName','Gauss Seidel (Tol $h_x^2$)','linewidth',2)
+F1 = loglog(N_x,T_GS_f,'-D','DisplayName','Gauss Seidel (Tol $1e-12$)','linewidth',2)
 hold on
-F2 = loglog(N_x,T_GS_c,'-*','DisplayName','Gauss Seidel (Tol $1e-12$)','linewidth',2)
+F2 = loglog(N_x,T_GS_c,'-*','DisplayName','Gauss Seidel (Tol $h_x^2$)','linewidth',2)
 F3 = loglog(N_x,T_J_f,'--p','DisplayName','Jacobi (Tol $1e-12$)','linewidth',2)
-F4 = loglog(N_x,T_J_c,'.-.','DisplayName','Jacobi (Tol $1e-12$)','linewidth',2)
+F4 = loglog(N_x,T_J_c,'.-.','DisplayName','Jacobi (Tol $h_x^2$)','linewidth',2)
 F5 = loglog(N_x(2:3),6*N_x(2:3).^2,'DisplayName','slope 2','linewidth',2)
 hold off
 legend([F1,F2,F3,F4,F5],'Interpreter','latex','Location','northwest')
