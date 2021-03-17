@@ -27,39 +27,6 @@ module problem_setup
 
 end module problem_setup
 
-module iterative_method
-use type_defs
-implicit none
-contains
-subroutine gauss(x,b,A,n)
-  use type_defs
-  use afuns
-  implicit none
-  integer, intent(in) :: n
-  real(dp), dimension(:,:), intent(in) :: A
-  real(dp), intent(inout)  :: x(n)
-  real(dp), intent(in)  :: b(n)
-  real(dp), allocatable, dimension(:) :: x_temp
-  real(dp) :: r
-  integer :: iter,i,j
-  x_temp = x+1
-  iter = 0
-
-  do while (( sum( (x_temp-x)**2) .gt. 1e-12) &
-       .and. (iter .lt. 10000))
-        x_temp = x
-        do i = 1,n
-            r = b(i)
-            do j = 1,n
-                r = r - A(i,j)*x(j)
-            end do
-            x(i) = x(i) + r/A(i,i)
-        end do
-        iter = iter + 1
-end do
-end subroutine gauss
-
-end module iterative_method
 module arrs
   ! This module holds the arrays that are used in the discretization
   use type_defs
