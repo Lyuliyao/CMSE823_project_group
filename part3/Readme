@@ -1,0 +1,7 @@
+This is the code for part3
+
+The right Jacobi method and Gauss method is implemented in folder "JacobXXX".
+The right  Gauss method is implemented in folder "GaussXXX" .
+
+The Jacobi method and Gauss method implemented in "DenseXXX" folder
+and Jacobi method in folder "GaussXXX" are all problematic or I just don't do it.
