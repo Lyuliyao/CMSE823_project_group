@@ -1,0 +1,176 @@
+
+Lmod is automatically replacing "GNU/6.4.0-2.28" with "iccifort/2020.4.304".
+
+
+Lmod is automatically replacing "GNU/6.4.0-2.28" with "iccifort/2020.4.304".
+
+
+Lmod is automatically replacing "OpenMPI/2.1.2" with "impi/2019.9.304".
+
+-------------------------------------------------------------------------------
+The following dependent module(s) are not currently loaded: FFTW/3.3.7 (required by: Boost/1.67.0, Python/3.6.4), OpenBLAS/0.2.20 (required by: ScaLAPACK/2.0.2-OpenBLAS-0.2.20, Boost/1.67.0, Python/3.6.4, ScaLAPACK/2.0.2-OpenBLAS-0.2.20, Boost/1.67.0, Python/3.6.4), ScaLAPACK/2.0.2-OpenBLAS-0.2.20 (required by: Boost/1.67.0, Python/3.6.4)
+-------------------------------------------------------------------------------
+
+Inactive Modules:
+  1) CMake/3.11.1        4) Python/3.6.4                        7) Tcl/8.6.8
+  2) FFTW/3.3.7          5) SQLite/3.21.0                       8) libreadline/7.0
+  3) OpenBLAS/0.2.20     6) ScaLAPACK/2.0.2-OpenBLAS-0.2.20     9) tbb/2018_U3
+
+Due to MODULEPATH changes, the following have been reloaded:
+  1) Boost/1.67.0     3) bzip2/1.0.6      5) zlib/1.2.11
+  2) GMP/6.1.2        4) libffi/3.2.1
+
+The following have been reloaded with a version change:
+  1) GCCcore/6.4.0 => GCCcore/10.2.0     3) imkl/2018.1.163 => imkl/2020.4.304
+  2) binutils/2.28 => binutils/2.35
+
+Lmod has detected the following error: These module(s) or extension(s) exist
+but cannot be loaded as requested: "FFmpeg/3.4"
+   Try: "module spider FFmpeg/3.4" to see how to load the module(s).
+
+
+
+
+The following have been reloaded with a version change:
+  1) MATLAB/2018a => MATLAB/2019b
+
+ Setting up Laplacians
+ Factoring matrices
+ Setup and factorization took    31.0779020000000       seconds
+ Starting Time Loop....
+ Timestep          100  out of         5000
+ Timestep          200  out of         5000
+ Timestep          300  out of         5000
+ Timestep          400  out of         5000
+ Timestep          500  out of         5000
+ Timestep          600  out of         5000
+ Timestep          700  out of         5000
+ Timestep          800  out of         5000
+ Timestep          900  out of         5000
+ Timestep         1000  out of         5000
+ Timestep         1100  out of         5000
+ Timestep         1200  out of         5000
+ Timestep         1300  out of         5000
+ Timestep         1400  out of         5000
+ Timestep         1500  out of         5000
+ Timestep         1600  out of         5000
+ Timestep         1700  out of         5000
+ Timestep         1800  out of         5000
+ Timestep         1900  out of         5000
+ Timestep         2000  out of         5000
+ Timestep         2100  out of         5000
+ Timestep         2200  out of         5000
+ Timestep         2300  out of         5000
+ Timestep         2400  out of         5000
+ Timestep         2500  out of         5000
+ Timestep         2600  out of         5000
+ Timestep         2700  out of         5000
+ Timestep         2800  out of         5000
+ Timestep         2900  out of         5000
+ Timestep         3000  out of         5000
+ Timestep         3100  out of         5000
+ Timestep         3200  out of         5000
+ Timestep         3300  out of         5000
+ Timestep         3400  out of         5000
+ Timestep         3500  out of         5000
+ Timestep         3600  out of         5000
+ Timestep         3700  out of         5000
+ Timestep         3800  out of         5000
+ Timestep         3900  out of         5000
+ Timestep         4000  out of         5000
+ Timestep         4100  out of         5000
+ Timestep         4200  out of         5000
+ Timestep         4300  out of         5000
+ Timestep         4400  out of         5000
+ Timestep         4500  out of         5000
+ Timestep         4600  out of         5000
+ Timestep         4700  out of         5000
+ Timestep         4800  out of         5000
+ Timestep         4900  out of         5000
+ Timestep         5000  out of         5000
+ Time loop took    461.029712000000       seconds
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2019 The MathWorks, Inc.
+                  R2019b (9.7.0.1190202) 64-bit (glnxa64)
+                              August 21, 2019
+
+ 
+To get started, type doc.
+For product information, visit www.mathworks.com.
+ 
+slurmstepd: error: execve(): ffmpeg: No such file or directory
+srun: error: amr-082: task 0: Exited with exit code 2
+JobId=20246328 JobName=Incomp_NS
+   UserId=lyuliyao(6006467) GroupId=cmse(2362) MCS_label=N/A
+   Priority=49409 Nice=0 Account=general QOS=lyuliyao
+   JobState=RUNNING Reason=None Dependency=(null)
+   Requeue=1 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=00:09:24 TimeLimit=01:00:00 TimeMin=N/A
+   SubmitTime=2021-04-01T06:27:41 EligibleTime=2021-04-01T06:27:41
+   AccrueTime=2021-04-01T06:27:41
+   StartTime=2021-04-01T06:27:44 EndTime=2021-04-01T07:27:44 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2021-04-01T06:27:44
+   Partition=general-long AllocNode:Sid=dev-intel18:10108
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=amr-082
+   BatchHost=amr-082
+   NumNodes=1 NumCPUs=1 NumTasks=1 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   TRES=cpu=1,mem=16G,node=1,billing=2490
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryCPU=16G MinTmpDiskNode=0
+   Features=amr&[intel14|intel16|intel18|amr|nvf] DelayBoot=00:00:00
+   OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null)
+   Command=/mnt/ufs18/home-058/lyuliyao/Documents/CMSE_823_2021/CMSE823_project_group/part3/Dense_N100_nu0.0005/insjob.sh
+   WorkDir=/mnt/ufs18/home-058/lyuliyao/Documents/CMSE_823_2021/CMSE823_project_group/part3/Dense_N100_nu0.0005
+   Comment=stdout=/mnt/ufs18/home-058/lyuliyao/Documents/CMSE_823_2021/CMSE823_project_group/part3/Dense_N100_nu0.0005/slurm-20246328.out 
+   StdErr=/mnt/ufs18/home-058/lyuliyao/Documents/CMSE_823_2021/CMSE823_project_group/part3/Dense_N100_nu0.0005/slurm-20246328.out
+   StdIn=/dev/null
+   StdOut=/mnt/ufs18/home-058/lyuliyao/Documents/CMSE_823_2021/CMSE823_project_group/part3/Dense_N100_nu0.0005/slurm-20246328.out
+   Power=
+   NtasksPerTRES:0
+
+
+SLURM Job ID: 20246328
+WrkDir=/mnt/ufs18/home-058/lyuliyao/Documents/CMSE_823_2021/CMSE823_project_group/part3/Dense_N100_nu0.0005
+=========================================================================================================
+          JobID |            20246328 |      20246328.batch |     20246328.extern |          20246328.0 |
+        JobName |           Incomp_NS |               batch |              extern |        kalle_anka.x |
+           User |            lyuliyao |                     |                     |                     |
+       NodeList |             amr-082 |             amr-082 |             amr-082 |             amr-082 |
+         NNodes |                   1 |                   1 |                   1 |                   1 |
+         NTasks |                     |                   1 |                   1 |                   1 |
+          NCPUS |                   1 |                   1 |                   1 |                   1 |
+      AllocGRES |                     |                     |                     |                     |
+         ReqMem |                16Gc |                16Gc |                16Gc |                16Gc |
+      Timelimit |            01:00:00 |                     |                     |                     |
+        Elapsed |            00:09:25 |            00:09:25 |            00:09:25 |            00:08:18 |
+       TotalCPU |           08:12.223 |            00:00:45 |            00:00:00 |           08:12.223 |
+     AveCPULoad |            0.871191 |            0.079646 |                     |              0.9884 |
+         MaxRSS |                     |             634096K |                     |            2403640K |
+      MaxVMSize |                     |             218060K |                     |            2723396K |
+          Start | 2021-04-01T06:27:44 | 2021-04-01T06:27:44 | 2021-04-01T06:27:44 | 2021-04-01T06:27:57 |
+            End |             Unknown |             Unknown |             Unknown | 2021-04-01T06:36:15 |
+       ExitCode |                 0:0 |                 0:0 |                 0:0 |                 0:0 |
+          State |             RUNNING |             RUNNING |             RUNNING |           COMPLETED |
+=========================================================================================================
+          JobID |          20246328.1 |
+        JobName |              ffmpeg |
+           User |                     |
+       NodeList |             amr-082 |
+         NNodes |                   1 |
+         NTasks |                   1 |
+          NCPUS |                   1 |
+      AllocGRES |                     |
+         ReqMem |                16Gc |
+      Timelimit |                     |
+        Elapsed |            00:00:01 |
+       TotalCPU |            00:00:00 |
+     AveCPULoad |                     |
+         MaxRSS |                     |
+      MaxVMSize |                     |
+          Start | 2021-04-01T06:37:08 |
+            End |             Unknown |
+       ExitCode |                 0:0 |
+          State |             RUNNING |
+=======================================

@@ -1,0 +1,230 @@
+
+Lmod is automatically replacing "GNU/6.4.0-2.28" with "iccifort/2020.4.304".
+
+
+Lmod is automatically replacing "GNU/6.4.0-2.28" with "iccifort/2020.4.304".
+
+
+Lmod is automatically replacing "OpenMPI/2.1.2" with "impi/2019.9.304".
+
+-------------------------------------------------------------------------------
+The following dependent module(s) are not currently loaded: FFTW/3.3.7 (required by: Boost/1.67.0, Python/3.6.4), OpenBLAS/0.2.20 (required by: ScaLAPACK/2.0.2-OpenBLAS-0.2.20, Boost/1.67.0, Python/3.6.4, ScaLAPACK/2.0.2-OpenBLAS-0.2.20, Boost/1.67.0, Python/3.6.4), ScaLAPACK/2.0.2-OpenBLAS-0.2.20 (required by: Boost/1.67.0, Python/3.6.4)
+-------------------------------------------------------------------------------
+
+Inactive Modules:
+  1) CMake/3.11.1        4) Python/3.6.4                        7) Tcl/8.6.8
+  2) FFTW/3.3.7          5) SQLite/3.21.0                       8) libreadline/7.0
+  3) OpenBLAS/0.2.20     6) ScaLAPACK/2.0.2-OpenBLAS-0.2.20     9) tbb/2018_U3
+
+Due to MODULEPATH changes, the following have been reloaded:
+  1) Boost/1.67.0     3) bzip2/1.0.6      5) zlib/1.2.11
+  2) GMP/6.1.2        4) libffi/3.2.1
+
+The following have been reloaded with a version change:
+  1) GCCcore/6.4.0 => GCCcore/10.2.0     3) imkl/2018.1.163 => imkl/2020.4.304
+  2) binutils/2.28 => binutils/2.35
+
+
+Inactive Modules:
+  1) UCX/1.9.0
+
+Due to MODULEPATH changes, the following have been reloaded:
+  1) binutils/2.35     2) numactl/2.0.13     3) zlib/1.2.11
+
+The following have been reloaded with a version change:
+  1) GCCcore/10.2.0 => GCCcore/9.3.0
+
+
+The following have been reloaded with a version change:
+  1) bzip2/1.0.6 => bzip2/1.0.8
+
+ Setting up Laplacians
+ Factoring matrices
+ Setup and factorization took   1.813100000000000E-002  seconds
+ Starting Time Loop....
+ Timestep          100  out of         5000
+ Timestep          200  out of         5000
+ Timestep          300  out of         5000
+ Timestep          400  out of         5000
+ Timestep          500  out of         5000
+ Timestep          600  out of         5000
+ Timestep          700  out of         5000
+ Timestep          800  out of         5000
+ Timestep          900  out of         5000
+ Timestep         1000  out of         5000
+ Timestep         1100  out of         5000
+ Timestep         1200  out of         5000
+ Timestep         1300  out of         5000
+ Timestep         1400  out of         5000
+ Timestep         1500  out of         5000
+ Timestep         1600  out of         5000
+ Timestep         1700  out of         5000
+ Timestep         1800  out of         5000
+ Timestep         1900  out of         5000
+ Timestep         2000  out of         5000
+ Timestep         2100  out of         5000
+ Timestep         2200  out of         5000
+ Timestep         2300  out of         5000
+ Timestep         2400  out of         5000
+ Timestep         2500  out of         5000
+ Timestep         2600  out of         5000
+ Timestep         2700  out of         5000
+ Timestep         2800  out of         5000
+ Timestep         2900  out of         5000
+ Timestep         3000  out of         5000
+ Timestep         3100  out of         5000
+ Timestep         3200  out of         5000
+ Timestep         3300  out of         5000
+ Timestep         3400  out of         5000
+ Timestep         3500  out of         5000
+ Timestep         3600  out of         5000
+ Timestep         3700  out of         5000
+ Timestep         3800  out of         5000
+ Timestep         3900  out of         5000
+ Timestep         4000  out of         5000
+ Timestep         4100  out of         5000
+ Timestep         4200  out of         5000
+ Timestep         4300  out of         5000
+ Timestep         4400  out of         5000
+ Timestep         4500  out of         5000
+ Timestep         4600  out of         5000
+ Timestep         4700  out of         5000
+ Timestep         4800  out of         5000
+ Timestep         4900  out of         5000
+ Timestep         5000  out of         5000
+ Time loop took   0.661489000000000       seconds
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2018 The MathWorks, Inc.
+                   R2018a (9.4.0.813654) 64-bit (glnxa64)
+                             February 23, 2018
+
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+MATLAB: management.cpp:671: find: Assertion `' failed.
+MATLAB: management.cpp:671: find: Assertion `' failed.
+/var/lib/slurmd/job20389201/slurm_script: line 20: 91325 Aborted                 (core dumped) matlab -nodisplay -r "pl"
+ffmpeg version 4.2.2 Copyright (c) 2000-2019 the FFmpeg developers
+  built with gcc 9.3.0 (GCC)
+  configuration: --prefix=/opt/software/FFmpeg/4.2.2-GCCcore-9.3.0 --enable-pic --enable-shared --enable-gpl --enable-version3 --enable-nonfree --cc=gcc --cxx=g++ --enable-libx264 --enable-libx265 --enable-libmp3lame --enable-libfreetype --enable-fontconfig --enable-libfribidi
+  libavutil      56. 31.100 / 56. 31.100
+  libavcodec     58. 54.100 / 58. 54.100
+  libavformat    58. 29.100 / 58. 29.100
+  libavdevice    58.  8.100 / 58.  8.100
+  libavfilter     7. 57.100 /  7. 57.100
+  libswscale      5.  5.100 /  5.  5.100
+  libswresample   3.  5.100 /  3.  5.100
+  libpostproc    55.  5.100 / 55.  5.100
+Input #0, image2, from 'frame%05d.jpg':
+  Duration: 00:00:02.00, start: 0.000000, bitrate: N/A
+    Stream #0:0: Video: mjpeg (Baseline), yuvj420p(pc, bt470bg/unknown/unknown), 1167x875 [SAR 1:1 DAR 1167:875], 25 fps, 25 tbr, 25 tbn, 25 tbc
+Stream mapping:
+  Stream #0:0 -> #0:0 (mjpeg (native) -> h264 (libx264))
+Press [q] to stop, [?] for help
+[libx264 @ 0x5e8000] using SAR=1/1
+[libx264 @ 0x5e8000] using cpu capabilities: MMX2 SSE2Fast SSSE3 SSE4.2 AVX FMA3 BMI2 AVX2
+[libx264 @ 0x5e8000] profile High, level 3.2, 4:2:0, 8-bit
+[libx264 @ 0x5e8000] 264 - core 157 - H.264/MPEG-4 AVC codec - Copyleft 2003-2018 - http://www.videolan.org/x264.html - options: cabac=1 ref=3 deblock=1:0:0 analyse=0x3:0x113 me=hex subme=7 psy=1 psy_rd=1.00:0.00 mixed_ref=1 me_range=16 chroma_me=1 trellis=1 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=-2 threads=1 lookahead_threads=1 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=3 b_pyramid=2 b_adapt=1 b_bias=0 direct=1 weightb=1 open_gop=0 weightp=2 keyint=250 keyint_min=10 scenecut=40 intra_refresh=0 rc_lookahead=40 rc=crf mbtree=1 crf=23.0 qcomp=0.60 qpmin=0 qpmax=69 qpstep=4 ip_ratio=1.40 aq=1:1.00
+Output #0, mp4, to 'Dense_N20_nu0.005.mp4':
+  Metadata:
+    encoder         : Lavf58.29.100
+    Stream #0:0: Video: h264 (libx264) (avc1 / 0x31637661), yuvj420p(pc), 1166x874 [SAR 1:1 DAR 583:437], q=-1--1, 10 fps, 10240 tbn, 10 tbc
+    Metadata:
+      encoder         : Lavc58.54.100 libx264
+    Side data:
+      cpb: bitrate max/min/avg: 0/0/0 buffer size: 0 vbv_delay: -1
+frame=   50 fps=0.0 q=25.0 size=       0kB time=00:00:00.60 bitrate=   0.6kbits/s speed=1.13x    frame=   50 fps= 49 q=25.0 Lsize=     144kB time=00:00:04.70 bitrate= 250.3kbits/s speed=4.61x    
+video:142kB audio:0kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.982695%
+[libx264 @ 0x5e8000] frame I:1     Avg QP:17.98  size: 14965
+[libx264 @ 0x5e8000] frame P:16    Avg QP:17.22  size:  5840
+[libx264 @ 0x5e8000] frame B:33    Avg QP:15.66  size:  1107
+[libx264 @ 0x5e8000] consecutive B-frames: 12.0%  0.0%  0.0% 88.0%
+[libx264 @ 0x5e8000] mb I  I16..4: 24.8% 66.5%  8.7%
+[libx264 @ 0x5e8000] mb P  I16..4:  2.6%  4.1%  0.3%  P16..4:  5.5%  2.7%  1.4%  0.0%  0.0%    skip:83.4%
+[libx264 @ 0x5e8000] mb B  I16..4:  0.4%  0.6%  0.0%  B16..8:  6.1%  0.7%  0.0%  direct: 0.8%  skip:91.3%  L0:36.7% L1:59.0% BI: 4.2%
+[libx264 @ 0x5e8000] 8x8 transform intra:61.9% inter:87.6%
+[libx264 @ 0x5e8000] coded y,uvDC,uvAC intra: 22.0% 48.8% 28.4% inter: 1.7% 4.5% 1.7%
+[libx264 @ 0x5e8000] i16 v,h,dc,p: 33% 32%  3% 33%
+[libx264 @ 0x5e8000] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 43% 21% 27%  2%  1%  1%  2%  2%  1%
+[libx264 @ 0x5e8000] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 44% 33% 13%  1%  2%  2%  1%  2%  2%
+[libx264 @ 0x5e8000] i8c dc,h,v,p: 47% 21% 14% 19%
+[libx264 @ 0x5e8000] Weighted P-Frames: Y:0.0% UV:0.0%
+[libx264 @ 0x5e8000] ref P L0: 74.9%  5.5% 14.2%  5.4%
+[libx264 @ 0x5e8000] ref B L0: 70.5% 26.9%  2.6%
+[libx264 @ 0x5e8000] ref B L1: 93.9%  6.1%
+[libx264 @ 0x5e8000] kb/s:231.91
+JobId=20389201 JobName=Incomp_NS
+   UserId=lyuliyao(6006467) GroupId=cmse(2362) MCS_label=N/A
+   Priority=48961 Nice=0 Account=general QOS=lyuliyao
+   JobState=RUNNING Reason=None Dependency=(null)
+   Requeue=1 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=00:01:14 TimeLimit=01:00:00 TimeMin=N/A
+   SubmitTime=2021-04-02T22:18:14 EligibleTime=2021-04-02T22:18:14
+   AccrueTime=2021-04-02T22:18:14
+   StartTime=2021-04-02T22:18:48 EndTime=2021-04-02T23:18:48 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2021-04-02T22:18:47
+   Partition=general-long AllocNode:Sid=dev-intel18:40220
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=amr-181
+   BatchHost=amr-181
+   NumNodes=1 NumCPUs=1 NumTasks=1 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   TRES=cpu=1,mem=8G,node=1,billing=1245
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryCPU=8G MinTmpDiskNode=0
+   Features=amr&[intel14|intel16|intel18|amr|nvf] DelayBoot=00:00:00
+   OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null)
+   Command=/mnt/ufs18/home-058/lyuliyao/Documents/CMSE_823_2021/CMSE823_project_group/part3/Dense_N20_nu0.005/insjob.sh
+   WorkDir=/mnt/ufs18/home-058/lyuliyao/Documents/CMSE_823_2021/CMSE823_project_group/part3/Dense_N20_nu0.005
+   Comment=stdout=/mnt/ufs18/home-058/lyuliyao/Documents/CMSE_823_2021/CMSE823_project_group/part3/Dense_N20_nu0.005/slurm-20389201.out 
+   StdErr=/mnt/ufs18/home-058/lyuliyao/Documents/CMSE_823_2021/CMSE823_project_group/part3/Dense_N20_nu0.005/slurm-20389201.out
+   StdIn=/dev/null
+   StdOut=/mnt/ufs18/home-058/lyuliyao/Documents/CMSE_823_2021/CMSE823_project_group/part3/Dense_N20_nu0.005/slurm-20389201.out
+   Power=
+   NtasksPerTRES:0
+
+
+SLURM Job ID: 20389201
+WrkDir=/mnt/ufs18/home-058/lyuliyao/Documents/CMSE_823_2021/CMSE823_project_group/part3/Dense_N20_nu0.005
+=========================================================================================================
+          JobID |            20389201 |      20389201.batch |     20389201.extern |          20389201.0 |
+        JobName |           Incomp_NS |               batch |              extern |        kalle_anka.x |
+           User |            lyuliyao |                     |                     |                     |
+       NodeList |             amr-181 |             amr-181 |             amr-181 |             amr-181 |
+         NNodes |                   1 |                   1 |                   1 |                   1 |
+         NTasks |                     |                   1 |                   1 |                   1 |
+          NCPUS |                   1 |                   1 |                   1 |                   1 |
+      AllocGRES |                     |                     |                     |                     |
+         ReqMem |                 8Gc |                 8Gc |                 8Gc |                 8Gc |
+      Timelimit |            01:00:00 |                     |                     |                     |
+        Elapsed |            00:01:14 |            00:01:14 |            00:01:14 |            00:00:07 |
+       TotalCPU |           00:01.804 |            00:00:35 |            00:00:00 |           00:00.733 |
+     AveCPULoad |           0.0243784 |            0.472973 |                     |            0.104714 |
+         MaxRSS |                     |             611376K |                     |                   0 |
+      MaxVMSize |                     |             217708K |                     |             287528K |
+          Start | 2021-04-02T22:18:48 | 2021-04-02T22:18:48 | 2021-04-02T22:18:48 | 2021-04-02T22:18:59 |
+            End |             Unknown |             Unknown |             Unknown | 2021-04-02T22:19:06 |
+       ExitCode |                 0:0 |                 0:0 |                 0:0 |                 0:0 |
+          State |             RUNNING |             RUNNING |             RUNNING |           COMPLETED |
+=========================================================================================================
+          JobID |          20389201.1 |
+        JobName |              ffmpeg |
+           User |                     |
+       NodeList |             amr-181 |
+         NNodes |                   1 |
+         NTasks |                   1 |
+          NCPUS |                   1 |
+      AllocGRES |                     |
+         ReqMem |                 8Gc |
+      Timelimit |                     |
+        Elapsed |            00:00:03 |
+       TotalCPU |           00:01.071 |
+     AveCPULoad |               0.357 |
+         MaxRSS |                   0 |
+      MaxVMSize |             353068K |
+          Start | 2021-04-02T22:19:59 |
+            End | 2021-04-02T22:20:02 |
+       ExitCode |                 0:0 |
+          State |           COMPLETED |
+=======================================

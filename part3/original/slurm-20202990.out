@@ -1,0 +1,134 @@
+
+Lmod is automatically replacing "GNU/6.4.0-2.28" with "iccifort/2020.4.304".
+
+
+Lmod is automatically replacing "GNU/6.4.0-2.28" with "iccifort/2020.4.304".
+
+
+Lmod is automatically replacing "OpenMPI/2.1.2" with "impi/2019.9.304".
+
+-------------------------------------------------------------------------------
+The following dependent module(s) are not currently loaded: FFTW/3.3.7 (required by: Boost/1.67.0, Python/3.6.4), OpenBLAS/0.2.20 (required by: ScaLAPACK/2.0.2-OpenBLAS-0.2.20, Boost/1.67.0, Python/3.6.4, ScaLAPACK/2.0.2-OpenBLAS-0.2.20, Boost/1.67.0, Python/3.6.4), ScaLAPACK/2.0.2-OpenBLAS-0.2.20 (required by: Boost/1.67.0, Python/3.6.4)
+-------------------------------------------------------------------------------
+
+Inactive Modules:
+  1) CMake/3.11.1        4) Python/3.6.4                        7) Tcl/8.6.8
+  2) FFTW/3.3.7          5) SQLite/3.21.0                       8) libreadline/7.0
+  3) OpenBLAS/0.2.20     6) ScaLAPACK/2.0.2-OpenBLAS-0.2.20     9) tbb/2018_U3
+
+Due to MODULEPATH changes, the following have been reloaded:
+  1) Boost/1.67.0     3) bzip2/1.0.6      5) zlib/1.2.11
+  2) GMP/6.1.2        4) libffi/3.2.1
+
+The following have been reloaded with a version change:
+  1) GCCcore/6.4.0 => GCCcore/10.2.0     3) imkl/2018.1.163 => imkl/2020.4.304
+  2) binutils/2.28 => binutils/2.35
+
+ Setting up Laplacians
+ Factoring matrices
+ Setup and factorization took    49.1350070000000       seconds
+ Starting Time Loop....
+ Timestep          100  out of         5000
+ Timestep          200  out of         5000
+ Timestep          300  out of         5000
+ Timestep          400  out of         5000
+ Timestep          500  out of         5000
+ Timestep          600  out of         5000
+ Timestep          700  out of         5000
+ Timestep          800  out of         5000
+ Timestep          900  out of         5000
+ Timestep         1000  out of         5000
+ Timestep         1100  out of         5000
+ Timestep         1200  out of         5000
+ Timestep         1300  out of         5000
+ Timestep         1400  out of         5000
+ Timestep         1500  out of         5000
+ Timestep         1600  out of         5000
+ Timestep         1700  out of         5000
+ Timestep         1800  out of         5000
+ Timestep         1900  out of         5000
+ Timestep         2000  out of         5000
+ Timestep         2100  out of         5000
+ Timestep         2200  out of         5000
+ Timestep         2300  out of         5000
+ Timestep         2400  out of         5000
+ Timestep         2500  out of         5000
+ Timestep         2600  out of         5000
+ Timestep         2700  out of         5000
+ Timestep         2800  out of         5000
+ Timestep         2900  out of         5000
+ Timestep         3000  out of         5000
+ Timestep         3100  out of         5000
+ Timestep         3200  out of         5000
+ Timestep         3300  out of         5000
+ Timestep         3400  out of         5000
+ Timestep         3500  out of         5000
+ Timestep         3600  out of         5000
+ Timestep         3700  out of         5000
+ Timestep         3800  out of         5000
+ Timestep         3900  out of         5000
+ Timestep         4000  out of         5000
+ Timestep         4100  out of         5000
+ Timestep         4200  out of         5000
+ Timestep         4300  out of         5000
+ Timestep         4400  out of         5000
+ Timestep         4500  out of         5000
+ Timestep         4600  out of         5000
+ Timestep         4700  out of         5000
+ Timestep         4800  out of         5000
+ Timestep         4900  out of         5000
+ Timestep         5000  out of         5000
+ Time loop took    1256.69905600000       seconds
+JobId=20202990 JobName=Incomp_NS
+   UserId=lyuliyao(6006467) GroupId=cmse(2362) MCS_label=N/A
+   Priority=47807 Nice=0 Account=general QOS=lyuliyao
+   JobState=RUNNING Reason=None Dependency=(null)
+   Requeue=1 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=00:22:02 TimeLimit=01:00:00 TimeMin=N/A
+   SubmitTime=2021-03-31T23:42:11 EligibleTime=2021-03-31T23:42:11
+   AccrueTime=2021-03-31T23:42:11
+   StartTime=2021-03-31T23:43:00 EndTime=2021-04-01T00:43:00 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2021-03-31T23:43:00
+   Partition=general-short AllocNode:Sid=dev-intel18:21251
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=amr-136
+   BatchHost=amr-136
+   NumNodes=1 NumCPUs=1 NumTasks=1 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   TRES=cpu=1,mem=8G,node=1,billing=1245
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryCPU=8G MinTmpDiskNode=0
+   Features=amr&[intel14|intel16|intel18|amr|nvf] DelayBoot=00:00:00
+   OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null)
+   Command=/mnt/ufs18/home-058/lyuliyao/Documents/CMSE_823_2021/CMSE823_project_group/part3/original/insjob.sh
+   WorkDir=/mnt/ufs18/home-058/lyuliyao/Documents/CMSE_823_2021/CMSE823_project_group/part3/original
+   Comment=stdout=/mnt/ufs18/home-058/lyuliyao/Documents/CMSE_823_2021/CMSE823_project_group/part3/original/slurm-20202989.out 
+   StdErr=/mnt/ufs18/home-058/lyuliyao/Documents/CMSE_823_2021/CMSE823_project_group/part3/original/slurm-20202990.out
+   StdIn=/dev/null
+   StdOut=/mnt/ufs18/home-058/lyuliyao/Documents/CMSE_823_2021/CMSE823_project_group/part3/original/slurm-20202990.out
+   Power=
+   NtasksPerTRES:0
+
+
+SLURM Job ID: 20202990
+WrkDir=/mnt/ufs18/home-058/lyuliyao/Documents/CMSE_823_2021/CMSE823_project_group/part3/original
+=========================================================================================================
+          JobID |            20202990 |      20202990.batch |     20202990.extern |          20202990.0 |
+        JobName |           Incomp_NS |               batch |              extern |        kalle_anka.x |
+           User |            lyuliyao |                     |                     |                     |
+       NodeList |             amr-136 |             amr-136 |             amr-136 |             amr-136 |
+         NNodes |                   1 |                   1 |                   1 |                   1 |
+         NTasks |                     |                   1 |                   1 |                   1 |
+          NCPUS |                   1 |                   1 |                   1 |                   1 |
+      AllocGRES |                     |                     |                     |                     |
+         ReqMem |                 8Gc |                 8Gc |                 8Gc |                 8Gc |
+      Timelimit |            01:00:00 |                     |                     |                     |
+        Elapsed |            00:22:03 |            00:22:03 |            00:22:03 |            00:21:51 |
+       TotalCPU |           21:46.138 |            00:00:05 |            00:00:00 |           21:46.138 |
+     AveCPULoad |            0.987255 |          0.00377929 |                     |            0.996291 |
+         MaxRSS |                     |               5220K |                     |            2405148K |
+      MaxVMSize |                     |             218028K |                     |            2723392K |
+          Start | 2021-03-31T23:43:00 | 2021-03-31T23:43:00 | 2021-03-31T23:43:00 | 2021-03-31T23:43:11 |
+            End |             Unknown |             Unknown |             Unknown | 2021-04-01T00:05:02 |
+       ExitCode |                 0:0 |                 0:0 |                 0:0 |                 0:0 |
+          State |             RUNNING |             RUNNING |             RUNNING |           COMPLETED |
+=========================================================================================================

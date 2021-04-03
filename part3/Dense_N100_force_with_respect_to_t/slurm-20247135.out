@@ -1,0 +1,275 @@
+
+Lmod is automatically replacing "GNU/6.4.0-2.28" with "iccifort/2020.4.304".
+
+
+Lmod is automatically replacing "GNU/6.4.0-2.28" with "iccifort/2020.4.304".
+
+
+Lmod is automatically replacing "OpenMPI/2.1.2" with "impi/2019.9.304".
+
+-------------------------------------------------------------------------------
+The following dependent module(s) are not currently loaded: FFTW/3.3.7 (required by: Boost/1.67.0, Python/3.6.4), OpenBLAS/0.2.20 (required by: ScaLAPACK/2.0.2-OpenBLAS-0.2.20, Boost/1.67.0, Python/3.6.4, ScaLAPACK/2.0.2-OpenBLAS-0.2.20, Boost/1.67.0, Python/3.6.4), ScaLAPACK/2.0.2-OpenBLAS-0.2.20 (required by: Boost/1.67.0, Python/3.6.4)
+-------------------------------------------------------------------------------
+
+Inactive Modules:
+  1) CMake/3.11.1        4) Python/3.6.4                        7) Tcl/8.6.8
+  2) FFTW/3.3.7          5) SQLite/3.21.0                       8) libreadline/7.0
+  3) OpenBLAS/0.2.20     6) ScaLAPACK/2.0.2-OpenBLAS-0.2.20     9) tbb/2018_U3
+
+Due to MODULEPATH changes, the following have been reloaded:
+  1) Boost/1.67.0     3) bzip2/1.0.6      5) zlib/1.2.11
+  2) GMP/6.1.2        4) libffi/3.2.1
+
+The following have been reloaded with a version change:
+  1) GCCcore/6.4.0 => GCCcore/10.2.0     3) imkl/2018.1.163 => imkl/2020.4.304
+  2) binutils/2.28 => binutils/2.35
+
+Lmod has detected the following error: These module(s) or extension(s) exist
+but cannot be loaded as requested: "FFmpeg"
+   Try: "module spider FFmpeg" to see how to load the module(s).
+
+
+
+
+The following have been reloaded with a version change:
+  1) MATLAB/2018a => MATLAB/2019a
+
+ Setting up Laplacians
+ Factoring matrices
+ Setup and factorization took    33.1964850000000       seconds
+ Starting Time Loop....
+ Timestep          100  out of        50000
+ Timestep          200  out of        50000
+ Timestep          300  out of        50000
+ Timestep          400  out of        50000
+ Timestep          500  out of        50000
+ Timestep          600  out of        50000
+ Timestep          700  out of        50000
+ Timestep          800  out of        50000
+ Timestep          900  out of        50000
+ Timestep         1000  out of        50000
+ Timestep         1100  out of        50000
+ Timestep         1200  out of        50000
+ Timestep         1300  out of        50000
+ Timestep         1400  out of        50000
+ Timestep         1500  out of        50000
+ Timestep         1600  out of        50000
+ Timestep         1700  out of        50000
+ Timestep         1800  out of        50000
+ Timestep         1900  out of        50000
+ Timestep         2000  out of        50000
+ Timestep         2100  out of        50000
+ Timestep         2200  out of        50000
+ Timestep         2300  out of        50000
+ Timestep         2400  out of        50000
+ Timestep         2500  out of        50000
+ Timestep         2600  out of        50000
+ Timestep         2700  out of        50000
+ Timestep         2800  out of        50000
+ Timestep         2900  out of        50000
+ Timestep         3000  out of        50000
+ Timestep         3100  out of        50000
+ Timestep         3200  out of        50000
+ Timestep         3300  out of        50000
+ Timestep         3400  out of        50000
+ Timestep         3500  out of        50000
+ Timestep         3600  out of        50000
+ Timestep         3700  out of        50000
+ Timestep         3800  out of        50000
+ Timestep         3900  out of        50000
+ Timestep         4000  out of        50000
+ Timestep         4100  out of        50000
+ Timestep         4200  out of        50000
+ Timestep         4300  out of        50000
+ Timestep         4400  out of        50000
+ Timestep         4500  out of        50000
+ Timestep         4600  out of        50000
+ Timestep         4700  out of        50000
+ Timestep         4800  out of        50000
+ Timestep         4900  out of        50000
+ Timestep         5000  out of        50000
+ Timestep         5100  out of        50000
+ Timestep         5200  out of        50000
+ Timestep         5300  out of        50000
+ Timestep         5400  out of        50000
+ Timestep         5500  out of        50000
+ Timestep         5600  out of        50000
+ Timestep         5700  out of        50000
+ Timestep         5800  out of        50000
+ Timestep         5900  out of        50000
+ Timestep         6000  out of        50000
+ Timestep         6100  out of        50000
+ Timestep         6200  out of        50000
+ Timestep         6300  out of        50000
+ Timestep         6400  out of        50000
+ Timestep         6500  out of        50000
+ Timestep         6600  out of        50000
+ Timestep         6700  out of        50000
+ Timestep         6800  out of        50000
+ Timestep         6900  out of        50000
+ Timestep         7000  out of        50000
+ Timestep         7100  out of        50000
+ Timestep         7200  out of        50000
+ Timestep         7300  out of        50000
+ Timestep         7400  out of        50000
+ Timestep         7500  out of        50000
+ Timestep         7600  out of        50000
+ Timestep         7700  out of        50000
+ Timestep         7800  out of        50000
+ Timestep         7900  out of        50000
+ Timestep         8000  out of        50000
+ Timestep         8100  out of        50000
+ Timestep         8200  out of        50000
+ Timestep         8300  out of        50000
+ Timestep         8400  out of        50000
+ Timestep         8500  out of        50000
+ Timestep         8600  out of        50000
+ Timestep         8700  out of        50000
+ Timestep         8800  out of        50000
+ Timestep         8900  out of        50000
+ Timestep         9000  out of        50000
+ Timestep         9100  out of        50000
+ Timestep         9200  out of        50000
+ Timestep         9300  out of        50000
+ Timestep         9400  out of        50000
+ Timestep         9500  out of        50000
+ Timestep         9600  out of        50000
+ Timestep         9700  out of        50000
+ Timestep         9800  out of        50000
+ Timestep         9900  out of        50000
+ Timestep        10000  out of        50000
+ Timestep        10100  out of        50000
+ Timestep        10200  out of        50000
+ Timestep        10300  out of        50000
+ Timestep        10400  out of        50000
+ Timestep        10500  out of        50000
+ Timestep        10600  out of        50000
+ Timestep        10700  out of        50000
+ Timestep        10800  out of        50000
+ Timestep        10900  out of        50000
+ Timestep        11000  out of        50000
+ Timestep        11100  out of        50000
+ Timestep        11200  out of        50000
+ Timestep        11300  out of        50000
+ Timestep        11400  out of        50000
+ Timestep        11500  out of        50000
+ Timestep        11600  out of        50000
+ Timestep        11700  out of        50000
+ Timestep        11800  out of        50000
+ Timestep        11900  out of        50000
+ Timestep        12000  out of        50000
+ Timestep        12100  out of        50000
+ Timestep        12200  out of        50000
+ Timestep        12300  out of        50000
+ Timestep        12400  out of        50000
+ Timestep        12500  out of        50000
+ Timestep        12600  out of        50000
+ Timestep        12700  out of        50000
+ Timestep        12800  out of        50000
+ Timestep        12900  out of        50000
+ Timestep        13000  out of        50000
+ Timestep        13100  out of        50000
+ Timestep        13200  out of        50000
+ Timestep        13300  out of        50000
+ Timestep        13400  out of        50000
+ Timestep        13500  out of        50000
+ Timestep        13600  out of        50000
+ Timestep        13700  out of        50000
+ Timestep        13800  out of        50000
+ Timestep        13900  out of        50000
+ Timestep        14000  out of        50000
+ Timestep        14100  out of        50000
+ Timestep        14200  out of        50000
+ Timestep        14300  out of        50000
+ Timestep        14400  out of        50000
+ Timestep        14500  out of        50000
+ Timestep        14600  out of        50000
+ Timestep        14700  out of        50000
+ Timestep        14800  out of        50000
+ Timestep        14900  out of        50000
+ Timestep        15000  out of        50000
+ Timestep        15100  out of        50000
+ Timestep        15200  out of        50000
+ Timestep        15300  out of        50000
+ Timestep        15400  out of        50000
+ Timestep        15500  out of        50000
+ Timestep        15600  out of        50000
+ Timestep        15700  out of        50000
+ Timestep        15800  out of        50000
+ Timestep        15900  out of        50000
+ Timestep        16000  out of        50000
+ Timestep        16100  out of        50000
+ Timestep        16200  out of        50000
+ Timestep        16300  out of        50000
+ Timestep        16400  out of        50000
+ Timestep        16500  out of        50000
+ Timestep        16600  out of        50000
+ Timestep        16700  out of        50000
+ Timestep        16800  out of        50000
+ Timestep        16900  out of        50000
+ Timestep        17000  out of        50000
+ Timestep        17100  out of        50000
+ Timestep        17200  out of        50000
+ Timestep        17300  out of        50000
+ Timestep        17400  out of        50000
+ Timestep        17500  out of        50000
+ Timestep        17600  out of        50000
+ Timestep        17700  out of        50000
+ Timestep        17800  out of        50000
+ Timestep        17900  out of        50000
+ Timestep        18000  out of        50000
+ Timestep        18100  out of        50000
+ Timestep        18200  out of        50000
+ Timestep        18300  out of        50000
+ Timestep        18400  out of        50000
+ Timestep        18500  out of        50000
+ Timestep        18600  out of        50000
+ Timestep        18700  out of        50000
+ Timestep        18800  out of        50000
+ Timestep        18900  out of        50000
+ Timestep        19000  out of        50000
+ Timestep        19100  out of        50000
+ Timestep        19200  out of        50000
+ Timestep        19300  out of        50000
+ Timestep        19400  out of        50000
+ Timestep        19500  out of        50000
+ Timestep        19600  out of        50000
+ Timestep        19700  out of        50000
+ Timestep        19800  out of        50000
+ Timestep        19900  out of        50000
+ Timestep        20000  out of        50000
+ Timestep        20100  out of        50000
+ Timestep        20200  out of        50000
+ Timestep        20300  out of        50000
+ Timestep        20400  out of        50000
+ Timestep        20500  out of        50000
+ Timestep        20600  out of        50000
+ Timestep        20700  out of        50000
+ Timestep        20800  out of        50000
+ Timestep        20900  out of        50000
+ Timestep        21000  out of        50000
+ Timestep        21100  out of        50000
+ Timestep        21200  out of        50000
+ Timestep        21300  out of        50000
+ Timestep        21400  out of        50000
+ Timestep        21500  out of        50000
+ Timestep        21600  out of        50000
+ Timestep        21700  out of        50000
+ Timestep        21800  out of        50000
+ Timestep        21900  out of        50000
+ Timestep        22000  out of        50000
+ Timestep        22100  out of        50000
+ Timestep        22200  out of        50000
+ Timestep        22300  out of        50000
+ Timestep        22400  out of        50000
+ Timestep        22500  out of        50000
+ Timestep        22600  out of        50000
+ Timestep        22700  out of        50000
+ Timestep        22800  out of        50000
+slurmstepd: error: *** JOB 20247135 ON amr-173 CANCELLED AT 2021-04-01T07:57:49 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 20247135.0 ON amr-173 CANCELLED AT 2021-04-01T07:57:49 DUE TO TIME LIMIT ***
+forrtl: error (78): process killed (SIGTERM)
+Image              PC                Routine            Line        Source             
+
+Stack trace terminated abnormally.
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.

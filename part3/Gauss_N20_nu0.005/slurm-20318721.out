@@ -1,0 +1,191 @@
+
+Lmod is automatically replacing "GNU/6.4.0-2.28" with "iccifort/2020.4.304".
+
+
+Lmod is automatically replacing "GNU/6.4.0-2.28" with "iccifort/2020.4.304".
+
+
+Lmod is automatically replacing "OpenMPI/2.1.2" with "impi/2019.9.304".
+
+-------------------------------------------------------------------------------
+The following dependent module(s) are not currently loaded: FFTW/3.3.7 (required by: Boost/1.67.0, Python/3.6.4), OpenBLAS/0.2.20 (required by: ScaLAPACK/2.0.2-OpenBLAS-0.2.20, Boost/1.67.0, Python/3.6.4, ScaLAPACK/2.0.2-OpenBLAS-0.2.20, Boost/1.67.0, Python/3.6.4), ScaLAPACK/2.0.2-OpenBLAS-0.2.20 (required by: Boost/1.67.0, Python/3.6.4)
+-------------------------------------------------------------------------------
+
+Inactive Modules:
+  1) CMake/3.11.1        4) Python/3.6.4                        7) Tcl/8.6.8
+  2) FFTW/3.3.7          5) SQLite/3.21.0                       8) libreadline/7.0
+  3) OpenBLAS/0.2.20     6) ScaLAPACK/2.0.2-OpenBLAS-0.2.20     9) tbb/2018_U3
+
+Due to MODULEPATH changes, the following have been reloaded:
+  1) Boost/1.67.0     3) bzip2/1.0.6      5) zlib/1.2.11
+  2) GMP/6.1.2        4) libffi/3.2.1
+
+The following have been reloaded with a version change:
+  1) GCCcore/6.4.0 => GCCcore/10.2.0     3) imkl/2018.1.163 => imkl/2020.4.304
+  2) binutils/2.28 => binutils/2.35
+
+
+Inactive Modules:
+  1) UCX/1.9.0
+
+Due to MODULEPATH changes, the following have been reloaded:
+  1) binutils/2.35     2) numactl/2.0.13     3) zlib/1.2.11
+
+The following have been reloaded with a version change:
+  1) GCCcore/10.2.0 => GCCcore/9.3.0
+
+
+The following have been reloaded with a version change:
+  1) bzip2/1.0.6 => bzip2/1.0.8
+
+ Setting up Laplacians
+ Setup and factorization took   2.349000000000000E-003  seconds
+ Starting Time Loop....
+ Timestep          100  out of         5000
+ Timestep          200  out of         5000
+ Timestep          300  out of         5000
+ Timestep          400  out of         5000
+ Timestep          500  out of         5000
+ Timestep          600  out of         5000
+ Timestep          700  out of         5000
+ Timestep          800  out of         5000
+ Timestep          900  out of         5000
+ Timestep         1000  out of         5000
+ Timestep         1100  out of         5000
+ Timestep         1200  out of         5000
+ Timestep         1300  out of         5000
+ Timestep         1400  out of         5000
+ Timestep         1500  out of         5000
+ Timestep         1600  out of         5000
+ Timestep         1700  out of         5000
+ Timestep         1800  out of         5000
+ Timestep         1900  out of         5000
+ Timestep         2000  out of         5000
+ Timestep         2100  out of         5000
+ Timestep         2200  out of         5000
+ Timestep         2300  out of         5000
+ Timestep         2400  out of         5000
+ Timestep         2500  out of         5000
+ Timestep         2600  out of         5000
+ Timestep         2700  out of         5000
+ Timestep         2800  out of         5000
+ Timestep         2900  out of         5000
+ Timestep         3000  out of         5000
+ Timestep         3100  out of         5000
+ Timestep         3200  out of         5000
+ Timestep         3300  out of         5000
+ Timestep         3400  out of         5000
+ Timestep         3500  out of         5000
+ Timestep         3600  out of         5000
+ Timestep         3700  out of         5000
+ Timestep         3800  out of         5000
+ Timestep         3900  out of         5000
+ Timestep         4000  out of         5000
+ Timestep         4100  out of         5000
+ Timestep         4200  out of         5000
+ Timestep         4300  out of         5000
+ Timestep         4400  out of         5000
+ Timestep         4500  out of         5000
+ Timestep         4600  out of         5000
+ Timestep         4700  out of         5000
+ Timestep         4800  out of         5000
+ Timestep         4900  out of         5000
+ Timestep         5000  out of         5000
+ Time loop took    6001.15599500000       seconds
+forrtl: severe (174): SIGSEGV, segmentation fault occurred
+Image              PC                Routine            Line        Source             
+kalle_anka.x       0000000000428DAA  Unknown               Unknown  Unknown
+libpthread-2.17.s  00002AFCE65E7630  Unknown               Unknown  Unknown
+libiomp5.so        00002AFCE60086AE  Unknown               Unknown  Unknown
+libiomp5.so        00002AFCE6008538  Unknown               Unknown  Unknown
+libiomp5.so        00002AFCE600827A  Unknown               Unknown  Unknown
+libiomp5.so        00002AFCE6008A7B  Unknown               Unknown  Unknown
+libiomp5.so        00002AFCE5F8AEB9  Unknown               Unknown  Unknown
+ld-2.17.so         00002AFCDD0700A8  Unknown               Unknown  Unknown
+libc-2.17.so       00002AFCE682DCE9  Unknown               Unknown  Unknown
+libc-2.17.so       00002AFCE682DD37  Unknown               Unknown  Unknown
+libc-2.17.so       00002AFCE681655C  __libc_start_main     Unknown  Unknown
+kalle_anka.x       0000000000403769  Unknown               Unknown  Unknown
+srun: error: amr-082: task 0: Exited with exit code 174
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2018 The MathWorks, Inc.
+                   R2018a (9.4.0.813654) 64-bit (glnxa64)
+                             February 23, 2018
+
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+MATLAB: management.cpp:671: find: Assertion `' failed.
+MATLAB: management.cpp:671: find: Assertion `' failed.
+/var/lib/slurmd/job20318721/slurm_script: line 20: 22999 Aborted                 (core dumped) matlab -nodisplay -r "pl"
+ffmpeg version 4.2.2 Copyright (c) 2000-2019 the FFmpeg developers
+  built with gcc 9.3.0 (GCC)
+  configuration: --prefix=/opt/software/FFmpeg/4.2.2-GCCcore-9.3.0 --enable-pic --enable-shared --enable-gpl --enable-version3 --enable-nonfree --cc=gcc --cxx=g++ --enable-libx264 --enable-libx265 --enable-libmp3lame --enable-libfreetype --enable-fontconfig --enable-libfribidi
+  libavutil      56. 31.100 / 56. 31.100
+  libavcodec     58. 54.100 / 58. 54.100
+  libavformat    58. 29.100 / 58. 29.100
+  libavdevice    58.  8.100 / 58.  8.100
+  libavfilter     7. 57.100 /  7. 57.100
+  libswscale      5.  5.100 /  5.  5.100
+  libswresample   3.  5.100 /  3.  5.100
+  libpostproc    55.  5.100 / 55.  5.100
+Input #0, image2, from 'frame%05d.jpg':
+  Duration: 00:00:02.00, start: 0.000000, bitrate: N/A
+    Stream #0:0: Video: mjpeg (Baseline), yuvj420p(pc, bt470bg/unknown/unknown), 1167x875 [SAR 1:1 DAR 1167:875], 25 fps, 25 tbr, 25 tbn, 25 tbc
+File 'Gauss_N100_nu0.005.mp4' already exists. Overwrite ? [y/N] Not overwriting - exiting
+srun: error: amr-082: task 0: Exited with exit code 1
+JobId=20318721 JobName=Incomp_NS
+   UserId=lyuliyao(6006467) GroupId=cmse(2362) MCS_label=N/A
+   Priority=53231 Nice=0 Account=general QOS=lyuliyao
+   JobState=RUNNING Reason=None Dependency=(null)
+   Requeue=1 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=01:41:09 TimeLimit=12:00:00 TimeMin=N/A
+   SubmitTime=2021-04-02T08:12:43 EligibleTime=2021-04-02T08:12:43
+   AccrueTime=2021-04-02T08:12:43
+   StartTime=2021-04-02T08:12:44 EndTime=2021-04-02T20:12:44 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2021-04-02T08:12:44
+   Partition=general-long AllocNode:Sid=dev-intel18:38045
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=amr-082
+   BatchHost=amr-082
+   NumNodes=1 NumCPUs=1 NumTasks=1 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   TRES=cpu=1,mem=8G,node=1,billing=1245
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=1 MinMemoryCPU=8G MinTmpDiskNode=0
+   Features=amr&[intel14|intel16|intel18|amr|nvf] DelayBoot=00:00:00
+   OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null)
+   Command=/mnt/ufs18/home-058/lyuliyao/Documents/CMSE_823_2021/CMSE823_project_group/part3/Gauss_N20_nu0.005/insjob.sh
+   WorkDir=/mnt/ufs18/home-058/lyuliyao/Documents/CMSE_823_2021/CMSE823_project_group/part3/Gauss_N20_nu0.005
+   Comment=stdout=/mnt/ufs18/home-058/lyuliyao/Documents/CMSE_823_2021/CMSE823_project_group/part3/Gauss_N20_nu0.005/slurm-20318721.out 
+   StdErr=/mnt/ufs18/home-058/lyuliyao/Documents/CMSE_823_2021/CMSE823_project_group/part3/Gauss_N20_nu0.005/slurm-20318721.out
+   StdIn=/dev/null
+   StdOut=/mnt/ufs18/home-058/lyuliyao/Documents/CMSE_823_2021/CMSE823_project_group/part3/Gauss_N20_nu0.005/slurm-20318721.out
+   Power=
+   NtasksPerTRES:0
+
+
+SLURM Job ID: 20318721
+WrkDir=/mnt/ufs18/home-058/lyuliyao/Documents/CMSE_823_2021/CMSE823_project_group/part3/Gauss_N20_nu0.005
+=========================================================================================================
+          JobID |            20318721 |      20318721.batch |     20318721.extern |          20318721.0 |
+        JobName |           Incomp_NS |               batch |              extern |        kalle_anka.x |
+           User |            lyuliyao |                     |                     |                     |
+       NodeList |             amr-082 |             amr-082 |             amr-082 |             amr-082 |
+         NNodes |                   1 |                   1 |                   1 |                   1 |
+         NTasks |                     |                   1 |                   1 |                   1 |
+          NCPUS |                   1 |                   1 |                   1 |                   1 |
+      AllocGRES |                     |                     |                     |                     |
+         ReqMem |                 8Gc |                 8Gc |                 8Gc |                 8Gc |
+      Timelimit |            12:00:00 |                     |                     |                     |
+        Elapsed |            01:41:11 |            01:41:11 |            01:41:11 |            01:40:59 |
+       TotalCPU |            00:00:00 |            00:00:35 |            00:00:00 |            00:00:00 |
+     AveCPULoad |                     |          0.00576511 |                     |                     |
+         MaxRSS |                     |             603336K |                     |                     |
+      MaxVMSize |                     |             218056K |                     |                     |
+          Start | 2021-04-02T08:12:44 | 2021-04-02T08:12:44 | 2021-04-02T08:12:44 | 2021-04-02T08:12:56 |
+            End |             Unknown |             Unknown |             Unknown |             Unknown |
+       ExitCode |                 0:0 |                 0:0 |                 0:0 |                 0:0 |
+          State |             RUNNING |             RUNNING |             RUNNING |             RUNNING |
+=========================================================================================================
